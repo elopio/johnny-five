@@ -11,13 +11,15 @@ icon: assets/sgier-johnny-five.png
 
 binaries:
   example:
-    exec: node example.js
+    exec: bin/example.sh
 
 parts:
   johnny-five:
     plugin: nodejs
     source: .
+    build-packages: [nodejs-legacy]
+    node-packages: [serialport]
   wrapper:
     plugin: copy
     files:
-      example.js: example.js
+      example.sh: bin/example.sh
